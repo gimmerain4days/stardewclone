@@ -25,10 +25,10 @@
     document.addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
 
     function update() {
-      if (keys['w']) dot.y -= dot.speed;
-      if (keys['s']) dot.y += dot.speed;
-      if (keys['a']) dot.x -= dot.speed;
-      if (keys['d']) dot.x += dot.speed;
+      if (keys['w'] || keys['arrowup']) dot.y -= dot.speed;
+      if (keys['s'] || keys['arrowdown']) dot.y += dot.speed;
+      if (keys['a'] || keys['arrowleft']) dot.x -= dot.speed;
+      if (keys['d'] || keys['arrowright']) dot.x += dot.speed;
     }
 
     function draw() {
