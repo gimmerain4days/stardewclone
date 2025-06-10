@@ -31,14 +31,27 @@
       if (keys['d'] || keys['arrowright']) dot.x += dot.speed;
     }
 
+    const tileSize = 20;
+
+    const tileCanvas = document.createElement('canvas');
+    tileCanvas.width = tileSize;
+    tileCanvas.height = tileSize;
+    const tctx = tileCanvas.getContext('2d');
+    tctx.fillStyle = '#228B22';
+    tctx.fillRect(0, 0, tileSize, tileSize);
+    tctx.fillStyle = '#2ecc71';
+    tctx.fillRect(2, 6, 4, 4);
+    tctx.fillRect(12, 2, 4, 4);
+    tctx.fillStyle = '#006400';
+    tctx.fillRect(6, 12, 4, 4);
+    tctx.fillRect(14, 14, 4, 4);
+
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const tileSize = 20;
-      ctx.fillStyle = '#228B22';
       for (let y = 0; y < canvas.height; y += tileSize) {
         for (let x = 0; x < canvas.width; x += tileSize) {
-          ctx.fillRect(x, y, tileSize, tileSize);
+          ctx.drawImage(tileCanvas, x, y);
         }
       }
 
