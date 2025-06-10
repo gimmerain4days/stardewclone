@@ -33,6 +33,15 @@
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const tileSize = 20;
+      ctx.fillStyle = '#228B22';
+      for (let y = 0; y < canvas.height; y += tileSize) {
+        for (let x = 0; x < canvas.width; x += tileSize) {
+          ctx.fillRect(x, y, tileSize, tileSize);
+        }
+      }
+
       ctx.fillStyle = 'red';
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
